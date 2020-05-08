@@ -1,0 +1,57 @@
+
+package appletdemo;
+
+
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+
+ class MouseListenerDemo extends Applet implements MouseListener {
+int x,y;
+    public void init()
+    {
+      addMouseListener(this);
+    }
+
+   
+   public void mouseClicked(MouseEvent e) {
+        
+    
+    }
+
+   
+@Override
+    public void mousePressed(MouseEvent e) {
+     x=e.getX();//get the current x-position of x
+     y=e.getY();
+     
+   repaint();    
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+         //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+         //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public void paint(Graphics g)
+    {
+        g.fillOval(x, y, 100, 100);
+        
+    }
+    
+    
+    }
+    
+
