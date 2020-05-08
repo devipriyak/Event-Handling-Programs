@@ -1,0 +1,41 @@
+/*<APPLET CODE="AudioApplet" WIDTH="100" HEIGHT= "100"></APPLET>< H5>*/
+import java.applet.Applet;
+import java.awt.Button;
+import java.applet.AudioClip;
+
+import java.awt.Graphics;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.*;
+public class AudioApplet extends Applet implements ActionListener
+{
+   Button play,stop;
+   AudioClip audioClip;//Reference of AudioClip
+   
+  
+   
+   public void init()
+   {
+       play = new Button("play");
+       add(play);
+       play.addActionListener(this);//play button register with ActionListener
+       stop = new Button("stop");
+       add(stop);
+       stop.addActionListener(this);//stop button register with ActionListener
+       //Get the object of audio clip by calling getAudioClip()
+audioClip = getAudioClip(getCodeBase(), "file_example_WAV_1MG.wav");
+       
+   }
+
+public void actionPerformed(ActionEvent ae)
+{
+   String str=ae.getActionCommand();//Get the label of clicked button
+   if(str.equals("play"))
+       audioClip.play();//play the audio  using builtin-play() method of audioclip
+   else 
+       if(str.equals("stop"))
+           audioClip.stop();//stop the audio  using builtin-stop() method of audioclip
+}
+}
+
